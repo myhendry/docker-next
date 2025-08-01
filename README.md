@@ -24,7 +24,22 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 This project is configured for Docker deployment and can be deployed on Render.
 
-### Local Docker Testing
+### Development with Hot Reload
+
+For development with hot reload and file watching:
+
+```bash
+# Option 1: Use the development script
+./dev.sh
+
+# Option 2: Use Docker Compose directly
+docker-compose -f docker-compose.dev.yml up --build
+
+# Option 3: Use Docker Compose with watch (requires Docker Compose v2.22+)
+docker-compose -f docker-compose.dev.yml up --build --watch
+```
+
+### Production Docker Testing
 
 1. Build the Docker image:
 
