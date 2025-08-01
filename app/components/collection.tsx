@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type CollectionItem = {
@@ -51,16 +52,18 @@ export const Collection = (props: Props) => {
   }
 
   return (
-    <div>
-      <h2>Collection</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {collection.length === 0 ? (
         <div>No items in collection</div>
       ) : (
         collection.map((item) => (
-          <div key={item.id} className="border p-4 m-2 rounded">
+          <Link
+            href={`/collection/${item.id}`}
+            key={item.id}
+            className="border p-4 m-2 rounded"
+          >
             <h3>{item.name}</h3>
-            <p>{item.description}</p>
-          </div>
+          </Link>
         ))
       )}
     </div>
