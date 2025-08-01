@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: docker-next
+    env: docker
+    plan: starter
+    region: oregon
+    buildCommand: docker build -t docker-next .
+    startCommand: docker run -p $PORT:3000 docker-next
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
